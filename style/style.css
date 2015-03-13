@@ -40,8 +40,7 @@ body {
         height: 251.4px;
         float: right;
         font-family: 'Roboto-Bold';
-        position: relative;
-        color: #717171; }
+        position: relative; }
         body .app .left.band .preview .photo {
           background-image: url("/me.jpg");
           background-size: 100%;

@@ -36,5 +36,6 @@ var Tools = {
 
 	noBorder : function (side) {
 		if(!side) var side = "";
+		
 	}
 }
