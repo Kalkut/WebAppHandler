@@ -21,7 +21,7 @@ $.when( //Multiple asynchronous calls...
 
 	var fitCVinScene = function () {
 		
-		cv.el.style.top = Math.max(Math.min(($('.scene').height() - cvHeight - $('.scene').position().top)*cv.topRatio,0),$('.scene').height() - cvHeight - $('.scene').position().top) + 'px';
+		cv.el.style.top = Math.max(Math.min(($('.scene').height() - cvHeight - $('.scene').position().top)*cv.topRatio,0),Math.min($('.scene').height() - cvHeight - $('.scene').position().top,0)) + 'px';
 
 	};
 
@@ -71,7 +71,6 @@ $.when( //Multiple asynchronous calls...
 			setTimeout(function() {
 				window.scrollTo(0,0);
 			}, 200);
-			console.log("ok")
 		}
 	})
 

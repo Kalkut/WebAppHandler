@@ -24,19 +24,27 @@
 		},
 		{
 			"title" : "BackBoneJS",
-			"gradient" : "60%"
+			"gradient" : "30%"
 		},
 		{
 			"title" : "CSS et préprocesseurs",
-			"gradient" : "66%"
+			"gradient" : "75%"
 		},
 		{
 			"title" : "HTML 5",
 			"gradient" : "70%"
 		},
 		{
-			"title" : "Javascript Natif",
-			"gradient" : "85%"
+			"title" : "JavaScript Natif",
+			"gradient" : "90%"
+		},
+		{
+			"title" : "jQuery",
+			"gradient" : "75%"
+		},
+		{
+			"title" : "NodeJS",
+			"gradient" : "65%"
 		},
 		{
 			"title" : "PHP/MySQL",

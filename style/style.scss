@@ -72,15 +72,19 @@ html{
 		  	line-height: 40px;
 		  	font-size: 25px;
 		  }
+		  @media only screen and (min-device-width : 600px) and (max-device-width : 736px) and (orientation : landscape) {
+		  	top : 550px;
+		  	bottom : initial;
+		  }
 		  @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : landscape) {
-		  	top : 500px;
+		  	top : 550px;
 		  	bottom : initial;
 		  }
-		  @media only screen and (min-device-width : 360px) and (max-device-width : 736px) and (orientation : landscape) {
-		  	top : 445px;
+		  @media only screen and (min-device-width : 400px) and (max-device-width : 736px) and (orientation : landscape) { /* Iphone 5*/
+		  	top : 480px;
 		  	bottom : initial;
 		  }
-		  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : landscape) { /* Iphone 5*/
+		  @media only screen and (min-device-width : 300px) and (max-device-width : 500px) and (orientation : landscape) {
 		  	top : 445px;
 		  	bottom : initial;
 		  }
@@ -106,32 +110,32 @@ html{
 			background-color : #25262b;
 			position : absolute;
 			.links{
-				position : absolute;
+				position : relative;
 				left : 0;
 				right : 0;
 				margin : 0 auto;
 				height: 100px;
 				width: 250px;
-				top : 450px;				
-				@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
-					top: 380px;
-  				font-size: 13px;
-				}
+				margin-top: 15px;
 				@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
-					top: 380px;
+					/*top: 380px;*/
   				font-size: 13px;
 				}
 				@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
-					top: 380px;
+					/*top: 380px;*/
   				font-size: 13px;
 				}
 				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-					top: 338px;
+					/*top: 338px;*/
   				font-size: 10px;
 				}
 				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) {
-					top: 350px;
+					/*top: 350px;*/
   				font-size: 10px;
+				}
+				@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+					/*top: 420px;*/
+  				font-size: 13px;
 				}
 				.follow{
 					text-align: center;
@@ -146,13 +150,18 @@ html{
 					right: 0;
 					margin : 0 auto;
 					width: 190px;
-					@media only screen and (min-device-width : 414px) and (max-device-width : 736px), screen and (min-device-width : 375px) and (max-device-width : 667px) ,screen and (min-device-width : 320px) and (max-device-width : 568px), screen and (min-device-width : 320px) and (max-device-width : 568px) {
-	  				top: 19px;
-	  				width: 160px;
-					}
 					@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
 						top: 19px;
 						width: 130px;
+					}
+					@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) {
+						width: 154px
+					}
+					@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+						width: 121px;
+					}
+					@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+	  				width: 154px;
 					}
 					a.link{
 						float: left;
@@ -170,14 +179,18 @@ html{
 			}
 			.preview{
 				margin : 0 auto;
-				padding-top: 40px;
+				top: 40px;
 				left : 0;
 				right : 0;
 				max-width: 250px;
-				min-height: 300px;
+				min-height: 240px;
 				text-align: center;
+				position : relative;
 				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) { /* Iphone 4*/
 					max-width: 150px;
+				}
+				@media only screen and (min-device-width : 500px) {
+					min-height: 300px;
 				}
 				.photo{
 					background-image : url('/me.jpg');
@@ -216,7 +229,7 @@ html{
 			}
 			.text{
 				text-align: center;
-			  position: absolute;
+			  position: relative;
 			  min-width: 200px;
 			  width: 65%;
 			  max-width: 750px;
@@ -224,18 +237,19 @@ html{
 			  left: 0;
 			  right: 0;
 			  box-sizing: border-box;
-				@media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : portrait) { /* Iphone 4*/
-					font-size: 13px;
-					top : 260px;
+			  margin-top: 20px;
+				@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : portrait) { 
 					width: 80%;
 				}
-				@media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : landscape) { /* Iphone 4*/
-					top : 275px;
+				@media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : landscape) {
 					font-size: 13px;
 					width: 80%;
 				}
-				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) { /* Iphone 4*/
+				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 					font-size: 10px;
+				}
+				@media only screen and (min-device-width : 650px) {
+					margin-top: 40px;
 				}
 			}
 		}
@@ -622,6 +636,11 @@ html{
 						color: #F7F7F7;
 						.item.last{
 							border-bottom : 0;
+							.picto{
+								background-image : url('/ninja.png');
+								background-size : 100%;
+								background-repeat : no-repeat;
+							}
 						}
 						.slider{
 							width: calc(100% - 40px);

@@ -95,7 +95,6 @@ var CV = function (o) {
 
 		cvRatio = this.el.getBoundingClientRect().height / this.el.offsetHeight; // TEMP, HACK : performance consuming if in move
 		this.height = cvHeight = $(this.el).height() * cvRatio;
-		console.log(cvRatio);
 
 	}.bind(this)
 
@@ -114,8 +113,8 @@ var CV = function (o) {
 			e.preventDefault(); //Prevent the triger of the swipe down refresh in Chrome 
 			
 			var deltaY = e.originalEvent.touches[0].pageY - currentTop;
-			console.log(deltaY);
-			this.el.style.top = Math.max(Math.min(parseInt(cv.el.style.top || 0) + deltaY, 0),$('.scene').height() - cvHeight - $('.scene').position().top) + "px";
+
+			this.el.style.top = Math.max(Math.min(parseInt(cv.el.style.top || 0) + deltaY, 0),Math.min($('.scene').height() - cvHeight - $('.scene').position().top,0)) + "px";
 			this.topRatio = parseInt(cv.el.style.top)/($('.scene').height() - cvHeight - $('.scene').position().top);
 			currentTop = e.originalEvent.touches[0].pageY;
 
