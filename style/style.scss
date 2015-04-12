@@ -13,163 +13,849 @@
   src: url('/Roboto-Thin.ttf');
 }
 
-body {
-	background-image : url('/texture.png');
-	.app {
-		width : 730px;
-		height: 1430px;
-		position: absolute;
-		margin : 0 auto;
-		left : 0;
-		right : 0;
-		box-shadow: 0 0 20px rgba(0,0,0,0.8);
-		font-family: 'Roboto-Bold';
-		.left.band {
-			width : 34.5%;
+@font-face{
+  font-family: "Roboto-Italic";
+  src: url('/Roboto-Italic.ttf');
+}
+
+@font-face{
+  font-family: "Helvetica-Neue";
+  src: url('/Helvetica-Neue.otf');
+}
+
+@font-face{
+  font-family: "Raleway-Regular";
+  src: url('/Raleway-Regular.ttf');
+}
+
+@font-face{
+  font-family: "Raleway-Bold";
+  src: url('/Raleway-Bold.ttf');
+}
+
+
+
+/* surlayers z-indexes are at 5 (number_of_layers*5)*/
+/*pop-in z-indexes are at 6 (number_of_layer*5 + 1)*/
+/*gates z-indexes are at 2 (number_of_layer*5 + 1)*/
+
+/* please add mixins for the media queries, and never ever again copy paste */
+/*TODO	  Recette responsive*/
+
+html{
+	width : 100%;
+	height : 100%;
+	margin : 0;
+	background-color : #25262b;
+	body.gate-background{
+		height: 100%;
+		.button.go{
+			width: 50px;
+		  height: 50px;
+		  bottom: 30px;
+		  position: absolute;
+		  margin: 0 auto;
+		  left: 0;
+		  right: 0;
+		  border-radius: 50% 50%;
+		  border: 2px solid #bababa;
+		  text-align: center;
+		  line-height: 50px;
+		  font-size: 29px;
+		  font-family: 'Roboto-Bold';
+		  background-repeat : no-repeat;
+		  background-size : 100%;
+		  z-index: 2;
+		  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) { /* Iphone 4*/
+		  	width: 40px;
+		  	height: 40px;
+		  	line-height: 40px;
+		  	font-size: 25px;
+		  }
+		  @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : landscape) {
+		  	top : 500px;
+		  	bottom : initial;
+		  }
+		  @media only screen and (min-device-width : 360px) and (max-device-width : 736px) and (orientation : landscape) {
+		  	top : 445px;
+		  	bottom : initial;
+		  }
+		  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : landscape) { /* Iphone 5*/
+		  	top : 445px;
+		  	bottom : initial;
+		  }
+		}
+		@media only screen and (max-device-width : 736px) and (orientation : landscape) {
+			height: 160%;
+			position : relative;
+		}
+		@media only screen and (max-device-width : 736px) and (orientation : portrait) {
 			height: 100%;
-			background: -webkit-linear-gradient(left, #3DA8E0, #1E94D2); /* For Safari 5.1 to 6.0 */
-			background: -o-linear-gradient(right,#3DA8E0, #1E94D2); /* For Opera 11.1 to 12.0 */
-			background: -moz-linear-gradient(right,#3DA8E0, #1E94D2); /* For Firefox 3.6 to 15 */
-			background: linear-gradient(to right, #3DA8E0, #1E94D2); /* Standard syntax */
-			position: absolute;
-			left : 0;
-			box-shadow: 2px 0px #C4C4C4;
-			z-index: 1;
-			font-family: 'Roboto-Regular';
-			color: #F7F7F7;
-			.preview {
-				width: 251.4px;
-				height: 251.4px;
-				float: right;
-				font-family: 'Roboto-Bold';
-				position : relative;
+			position : relative;
+		}
+	}
+	body{
+		margin : 0;
+		.gate{
+			z-index: 2;
+			margin : 0;
+			font-family: 'Raleway-Regular';
+			width: 100%;
+			height: 100%;
+			color : #bababa;
+			background-color : #25262b;
+			position : absolute;
+			.links{
+				position : absolute;
+				left : 0;
+				right : 0;
+				margin : 0 auto;
+				height: 100px;
+				width: 250px;
+				top : 450px;				
+				@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+					top: 380px;
+  				font-size: 13px;
+				}
+				@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+					top: 380px;
+  				font-size: 13px;
+				}
+				@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+					top: 380px;
+  				font-size: 13px;
+				}
+				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+					top: 338px;
+  				font-size: 10px;
+				}
+				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) {
+					top: 350px;
+  				font-size: 10px;
+				}
+				.follow{
+					text-align: center;
+					margin-bottom : 10px;
+					position : absolute;
+					width: 100%;
+				}
+				.wrap{
+					position: absolute;
+					top : 30px;
+					left : 0;
+					right: 0;
+					margin : 0 auto;
+					width: 190px;
+					@media only screen and (min-device-width : 414px) and (max-device-width : 736px), screen and (min-device-width : 375px) and (max-device-width : 667px) ,screen and (min-device-width : 320px) and (max-device-width : 568px), screen and (min-device-width : 320px) and (max-device-width : 568px) {
+	  				top: 19px;
+	  				width: 160px;
+					}
+					@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+						top: 19px;
+						width: 130px;
+					}
+					a.link{
+						float: left;
+						font-family: "Raleway-Bold";
+						color: #428bca;
+  					text-decoration: none;
+					}
+					a.link.left{
+						margin-right : 10px;
+					}
+					a.link.right{
+						
+					}
+				}
+			}
+			.preview{
+				margin : 0 auto;
+				padding-top: 40px;
+				left : 0;
+				right : 0;
+				max-width: 250px;
+				min-height: 300px;
+				text-align: center;
+				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) { /* Iphone 4*/
+					max-width: 150px;
+				}
 				.photo{
 					background-image : url('/me.jpg');
 					background-size: 100%;
 					background-repeat: no-repeat;
-					width: 100%;
-					height: 100%;
+					position: relative;
+					left : 0;
+					right: 0;
+					margin : 0 auto;
+					width: 200px;
+					height: 200px;
+					border-radius : 50% 50%;
+					border : 3px solid #CCC;
+					margin-bottom: 15px;
+					@media only screen and (min-device-width : 320px) and (max-device-width : 736px) { /* Iphone 4*/
+						width: 150px;
+						height: 150px;
+					}
 				}
 				.title{
-					font-size: 23px;
-					position : absolute;
-					left: 20%;
-					bottom : 27px;
+					font-size: 30px;
+					float: left;
+					width: 100%;
+					@media only screen and (min-device-width : 320px) and (max-device-width : 480px) { /* Iphone 4*/
+						font-size: 19px;
+					}
 				}
-				.comment {
-					font-size: 17px;
-					position : absolute;
-					left: 20%;
-					bottom : 10px;
+				.comment{
+					font-size: 15px;
+					float: left;
+					width: 100%;
+					@media only screen and (min-device-width : 320px) and (max-device-width : 480px) { /* Iphone 4*/
+						font-size: 13px;
+					}
 				}
 			}
-			.item{
-				float: right;
-				width: calc(100% - 40px);
-				padding: 40px 40px 40px 0px;
-				border-bottom: 1px solid #0192D1;
-				box-sizing: border-box;
-				position: relative;
-				.picto {
-					width: 40px;
-					height: 40px;
-					margin-right: 40px;
-					float: right;
-					position: absolute;
-					border: 1px solid #FFFFFF;
-					left: -40px;
-					top: 42px;
+			.text{
+				text-align: center;
+			  position: absolute;
+			  min-width: 200px;
+			  width: 65%;
+			  max-width: 750px;
+			  margin: 0 auto;
+			  left: 0;
+			  right: 0;
+			  box-sizing: border-box;
+				@media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : portrait) { /* Iphone 4*/
+					font-size: 13px;
+					top : 260px;
+					width: 80%;
 				}
-				.content {
-					width: 100%;
-					float: right;
-					/* border-bottom: 1px solid #0192D1; */
-					padding-left: 10px;
-					box-sizing: border-box;
-					.text{
-						width: 100%;
-					}
-					.title{
-						width: 100%;
-					}
+				@media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : landscape) { /* Iphone 4*/
+					top : 275px;
+					font-size: 13px;
+					width: 80%;
+				}
+				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) { /* Iphone 4*/
+					font-size: 10px;
 				}
 			}
 		}
-		.workspace {
-			width: 65.5%;
+		.app{
+			background-image : url('/texture.png');
+			width: 100%;
 			height: 100%;
-			background-color: #D8D8D7;
-			position: absolute;
-			right : 0;
-			.item.section {
-				background: -webkit-linear-gradient(left, #F8FAFA , #ffffff);
-				background: -o-linear-gradient(right, #F8FAFA, #ffffff);
-				background: -moz-linear-gradient(right, #F8FAFA, #ffffff);
-				background: linear-gradient(to right, #F8FAFA , #ffffff);
-				box-shadow : 1px 1px 5px rgba(0, 0, 0, 0.65);
-				margin : 30px 30px 0px 30px;
-				float: left;
-				box-sizing : border-box;
-				width: calc(100% - 60px);
-				padding-top: 40px;
-				.picto  {
-					width: 70px;
-					height: 25px;
-					float: left;
+			position : absolute;
+			background-color: #25262b;
+			.popin{
+				font-size: 15px;
+				width: 500px;
+				background-color : #FFFFFF;
+				position : fixed;
+				margin : 0 auto;
+				left : 0;
+				right: 0;
+				z-index: 6;
+				display: inline-block;
+		  	vertical-align: middle;
+		  	top: 50%;
+				transform: translate(0px, -50%);
+				-webkit-transform: translate(0px, -50%);
+				-ms-transform : translate(0px, -50%);
+				-moz-transform : translate(0px, -50%);;
+				-o-transform: translate(0px, -50%);
+				/*add a mixin here to get a cleaner code*/
+				@media only screen and (min-device-width : 320px) and (max-device-width : 768px) and (orientation : portrait )  {
+					width: 100%;
+				  height: 480px;
+				  font-size: 11px;
 				}
-				.content {
-					width: calc(100% - 70px);
-					float: right;
-					.title {
-						float: left;
-						color: #717171;
-						font-weight: bold;
-						font-size: 23px;
+				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait )  {
+					height: 400px;
+					/*padding-bottom : 20px;*/
+				}
+				@media only screen and (min-device-width : 320px) and (max-device-width : 768px) and (orientation : landscape )  {
+					background-image: url(/rotate.png);  /* shows image */
+			    background-repeat : no-repeat;
+			    background-size : contain;
+			    background-position: center;
+			    height: 100%;                        /* be sure to set height & width */
+			    width:  400px;
+				}
+				.item.pop-in{
+					@media only screen and (min-device-width : 320px) and (max-device-width : 768px) and (orientation : landscape )  {
+						display: none;
 					}
-					.item.sous-section{
-						float : right;
-						width : 100%;
-						padding : 30px 0;
-						border-bottom : 1px solid #D8D8D7;
-						.top-title {
-							width: 100%;
+				}
+				.item.pop-in.left{
+					float : left;
+					.picto{
+						float: left;
+						margin-left: 15px;
+					}
+					.content{
+						width: calc(100% - 87px);
+						position: absolute;
+						right : 0;
+						text-align: right;
+						padding-left : 15px;
+						box-sizing : border-box;
+						.title{
+							padding-right : 15px;
+						}
+					}
+				}
+				.item.pop-in.right{
+					float : right;
+					.picto{
+						float: right;
+						margin-right : 15px;
+					}
+					.content{
+						width: calc(100% - 87px);
+						position: absolute;
+						left : 0;
+						padding-left : 15px;
+						box-sizing : border-box;
+					}
+				}
+				.item.pop-in{
+					width : 80%;
+					padding : 30px 0;
+					border-bottom : 1px solid #D8D8D7;
+					height: 100px;
+					.picto {
+						width : 70px;
+						height: 70px;
+						@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait )  {
+							width: 40px;
+							height: 40px;
+						}
+						/*border : 1px solid #000000;*/
+						background-size : contain;
+						background-position : center;
+						background-repeat : no-repeat;
+					}
+					.top-title {
+						width: 100%;
+						float: left;
+						font-weight: initial;
+						font-size: 16px;
+						color: #444444;
+						font-family: 'Roboto-Regular';
+						-webkit-font-smoothing : antialiased;
+						font-smoothing : antialiased;
+						-moz-font-smoothing : antialiased;
+						font-weight: lighter;
+						color: #636365;
+					}
+					.content {
+						width: 100%;
+						.text {
 							float: left;
-							font-weight: initial;
-							font-size: 16px;
-							color: #444444;
+							width: 100%;
 							font-family: 'Roboto-Regular';
 							-webkit-font-smoothing : antialiased;
 							font-smoothing : antialiased;
 							-moz-font-smoothing : antialiased;
 							font-weight: lighter;
-							color: #636365;
+							color: #737474;
+							padding-right: 25px;
+							box-sizing: border-box;
+							text-align: justify;
 						}
-						.content {
-							width: 100%;
-							.text {
-								float: left;
-								font-size: 15px;
-								width: 100%;
-								font-family: 'Roboto-Regular';
-								-webkit-font-smoothing : antialiased;
-								font-smoothing : antialiased;
-								-moz-font-smoothing : antialiased;
-								font-weight: lighter;
-								color: #737474;
-								padding-right: 25px;
-								box-sizing: border-box;
-								text-align: justify;
+						.title {
+							color: #717171;
+							font-size: 15px;
+							@media only screen and (min-device-width : 320px) and (max-device-width : 768px) and (orientation : portrait )  {
+								font-size: 12px;
 							}
-							.title {
-								color: #39A0D7;
+							font-family: 'Roboto-Italic';
+							-webkit-font-smoothing : antialiased;
+							font-smoothing : antialiased;
+							-moz-font-smoothing : antialiased;
+							font-weight: bold;
+							margin-top: 10px;
+							margin-bottom: 15px;
+						}
+					}
+				}
+				.item.pop-in.last{
+					border : 0;
+				}
+				.item.pop-in.games{
+					@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait )  {
+						height: 100px;
+						padding : 13px 0;
+					}
+				}
+				.item.pop-in.phil{
+					@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait )  {
+						height: 100px;
+						padding : 18px 0;
+					}
+				}
+				.item.pop-in.news,.item.pop-in.science{
+					@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait )  {
+						height: 100px;
+						padding : 21px 0;
+					}
+				}
+			}
+			.surlayer {
+				background-color : rgba(0,0,0,0.5);
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 5;
+				top : 0;
+			}
+			.band.lefter{
+				width: 200px;
+			  height: calc(100% - 0px);
+			  float: left;
+			  padding-top : 25px;
+			  padding-right : 10px;
+			  padding-left : 10px;
+			  box-sizing : border-box;
+			  @media only screen and (min-device-width : 320px) and (max-device-width : 568px) { /* Iphone 5*/
+			  	width: 100%;
+				  height: 100px;
+				  position: absolute;
+				  float: none;
+				  bottom: 0px;
+				  padding-top: 0;
+				  padding-bottom: 10px;
+				  padding-right: 30px;
+				  padding-left: 30px;
+				  box-sizing: border-box;
+			  }
+			  @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) { /* Iphone 6*/
+			  	width: 100%;
+				  height: 60px;
+				  position: absolute;
+				  float: none;
+				  bottom: 0px;
+				  padding-top: 0;
+				  padding-bottom: 10px;
+				  padding-right: 30px;
+				  padding-left: 30px;
+				  box-sizing: border-box;
+			  }
+			  @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : landscape) { /*Iphone 6 plus*/
+			  	width: 100%;
+				  height: 70px;
+				  position: absolute;
+				  float: none;
+				  bottom: 0px;
+				  padding-top: 0;
+				  padding-bottom: 10px;
+				  padding-right: 30px;
+				  padding-left: 30px;
+				  box-sizing: border-box;
+			  }
+			  .item.title{
+			  	padding: 15px 0;
+				  font-size: 11px;
+				  text-align: center;
+				  color: #777;
+				  border-top: 1px solid rgba(255, 255, 255, 0.12);
+				  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+				  font-family: 'Helvetica-Neue';
+				  box-sizing: border-box;
+				  @media only screen and (min-device-width : 320px) and (max-device-width : 568px) { /* Iphone 5*/
+				  	height: 100%;
+				  }
+				  @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) { /* Iphone 6*/
+				  	height: 100%;
+				  	padding: 5px 0;
+				  }
+				  @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : landscape) { /*Iphone 6 Plus*/
+				  	height: 100%;
+				  	padding: 5px 0;
+				  }
+			  	.title{
+			  		color: #FFFFFF;
+			  		text-align: center;
+			  		opacity: 1;
+			  		color: #bbb;
+			  		font-size : 15px;
+			  		padding-bottom : 10px;
+			  		@media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape),screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : landscape) {
+			  			margin-bottom : 3px;
+			  			position: relative;
+			  			top : 5px;
+			  		}
+			  		@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) { /*Iphone 4*/
+			  			font-size : 12px;
+			  		}
+			  	}
+			  }
+			  .text{
+			  	font-size: 13px;
+			  	@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) { /*Iphone 4*/
+			  			font-size : 9px;
+			  	}
+			  }
+			}
+			.scene{
+				width: calc(100% - 200px);
+			  height: calc(100% - 25px);
+			  float: left;
+			  overflow: hidden;
+			  position: relative;
+			  box-sizing : border-box;
+			  top : 25px;
+			  @media only screen and (min-device-width : 320px) and (max-device-width : 568px) { /* Iphone 5*/
+			  	width: 100%;
+			  	height: calc(100% - 15% - 60px);
+			  	position : absolute;
+			  	float: none;
+			  	top : 15px;
+			  }
+			  @media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+			  	width : 100%;
+			  	height: calc(100% - 15% - 50px);
+			  	position: absolute;
+			  	float: none;
+			  	top : 20px;
+			  }
+			  @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) {
+			  	width : 100%;
+			  	height: calc(100% - 15% - 50px);
+			  	position: absolute;
+			  	float: none;
+			  	top : 20px;
+			  }
+			  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation : landscape) { /* Iphone 6*/
+					width: 100%;
+			  	height: calc(100% - 50px - 40px);
+			  	position : absolute;
+			  	float: none;
+				}
+				@media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : landscape) { /*Iphone 6 Plus*/
+					top : 15px;
+				}
+				.app-slider{
+					position : absolute;
+					right: 15px;
+					width : 10px;
+					height: 95%;
+					margin : auto 0;
+					top : 0;
+					bottom : 0;
+					border-radius : 10px;
+					border : 1px solid #bbb;
+					@media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+						display: none;
+					}
+					.bar-container{
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						.bar,.background-bar{
+							height: 100%;
+						  position: absolute;
+						}
+						.cursor{
+							background-color: #bbb;
+						  border-radius: 50%;
+						  width: 10px;
+						  height: 10px;
+						  position: absolute;
+						}
+					}
+				}
+				.CV {
+					width : calc(100% - 150px);
+					min-width: 729px;
+					max-width : 1400px;
+					height: 1500px;
+					position: absolute;
+					margin : 0 auto;
+					left : 0;
+					right : 0;
+					box-shadow: 0 0 20px rgba(0,0,0,0.8);
+					font-family: 'Roboto-Bold';
+					@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) { /* Iphone 5*/
+						transform: scale(0.4);
+						transform-origin: 0 0;
+					}
+					@media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : landscape) { /*Iphone 6 Plus*/
+						transform: scale(0.9);
+						transform-origin: 0 0;
+					}
+					@media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) { /* Iphone 6*/
+						transform: scale(0.8);
+						transform-origin: 0 0;
+					}
+					@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) { /* Iphone 5*/
+						transform: scale(0.7);
+						transform-origin: 0 0;
+					}
+					@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) { /* Iphone 4*/
+						transform: scale(0.6);
+						transform-origin: 0 0;
+					}
+					@media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait) { /* Iphone 6*/
+						transform: scale(0.46);
+						transform-origin: 0 0;
+					}
+					@media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : portrait) { /*Iphone 6 Plus*/
+						transform: scale(0.5);
+						transform-origin: 0 0;
+					}
+					@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+						transform: scale(0.73);
+						transform-origin: 0 0;
+					}
+					.left.band {
+						width : 34.5%;
+						height: 100%;
+						background: -webkit-linear-gradient(left, #3DA8E0, #1E94D2); /* For Safari 5.1 to 6.0 */
+						background: -o-linear-gradient(right,#3DA8E0, #1E94D2); /* For Opera 11.1 to 12.0 */
+						background: -moz-linear-gradient(right,#3DA8E0, #1E94D2); /* For Firefox 3.6 to 15 */
+						background: linear-gradient(to right, #3DA8E0, #1E94D2); /* Standard syntax */
+						position: absolute;
+						left : 0;
+						box-shadow: 2px 0px #C4C4C4;
+						z-index: 1;
+						font-family: 'Roboto-Regular';
+						color: #F7F7F7;
+						.item.last{
+							border-bottom : 0;
+						}
+						.slider{
+							width: calc(100% - 40px);
+							height: 45px;
+							float: right;
+							position : relative;
+							margin-top : 4px;
+							padding-right : 20px;
+							box-sizing : border-box;
+							.title{
+								position : absolute;
 								font-size: 15px;
-								font-family: 'Roboto-Regular';
-								-webkit-font-smoothing : antialiased;
-								font-smoothing : antialiased;
-								-moz-font-smoothing : antialiased;
-								font-weight: lighter;
-								margin-top: 10px;
-								margin-bottom: 15px;
+							}
+							.picto{
+								float: left;
+								width: 39px;
+								height: 39px;
+							}
+							.bar-container{
+								position: absolute;
+								width : calc(100% - 20px);
+								.bar,.background-bar{
+									height: 2px;
+								  position: absolute;
+								  top: 30px;
+								  border-radius : 2px;
+								}
+								.background-bar{
+									width: 100%;
+									background-color : #1783c5;
+								}
+								.bar{
+									//width: 50%;
+									background-color : #FFFFFF;
+									z-index : 2;
+								}
+								.cursor{
+									background-color: #FFFFFF;
+								  border-radius: 50%;
+								  width: 10px;
+								  height: 10px;
+								  position: absolute;
+								  top: 25px;
+								  //left : 50%;
+								}
+							}
+						}
+						.preview {							
+							width: 100%;
+							padding-bottom : 100%;
+							float: right;
+							font-family: 'Roboto-Bold';
+							position : relative;
+							.photo{
+								background-image : url('/me.jpg');
+								background-size: 100%;
+								background-repeat: no-repeat;
+								position : absolute;
+								top : 0;
+								bottom : 0;
+								left : 0;
+								right: 0;
+							}
+							.title{
+								font-size: 23px;
+								position : absolute;
+								left: 20%;
+								bottom : 27px;
+							}
+							.comment {
+								font-size: 17px;
+								position : absolute;
+								left: 20%;
+								bottom : 10px;
+							}
+						}
+						.item{
+							float: right;
+							width: calc(100% - 40px);
+							padding: 40px 40px 40px 0px;
+							border-bottom: 1px solid #0192D1;
+							box-sizing: border-box;
+							position: relative;
+							.picto {
+							  background-image: url("man.png");
+							  background-repeat: no-repeat;
+							  background-position: center;
+							  background-size: contain;
+							  width: 20px;
+							  height: 20px;
+							  margin-right: 40px;
+							  float: right;
+							  position: absolute;
+							  left: -25px;
+							}
+							.content {
+								width: 100%;
+								float: right;
+								/* border-bottom: 1px solid #0192D1; */
+								padding-left: 10px;
+								box-sizing: border-box;
+								.text{
+									width: 100%;
+									font-size: 13px;
+								}
+								.title{
+									width: 100%;
+								}
+							}
+						}
+					}
+					.workspace {
+						width: 65.5%;
+						height: 100%;
+						background-color: #D8D8D7;
+						position: absolute;
+						right : 0;
+						.work{
+							.picto{
+								background-image: url("suitcase.png");
+							}
+						}
+						.studies{
+							.picto{
+								background-image: url("student.png");
+							}
+						}
+						.interests{
+							.picto{
+								background-image: url("bike.png");
+							}
+						}
+						.item.section {
+							background: -webkit-linear-gradient(left, #F8FAFA , #ffffff);
+							background: -o-linear-gradient(right, #F8FAFA, #ffffff);
+							background: -moz-linear-gradient(right, #F8FAFA, #ffffff);
+							background: linear-gradient(to right, #F8FAFA , #ffffff);
+							box-shadow : 1px 1px 1px rgba(0, 0, 0, 0.15);
+							margin : 30px 30px 0px 30px;
+							float: left;
+							box-sizing : border-box;
+							width: calc(100% - 60px);
+							padding-top: 40px;
+							position: relative;
+							.picto  {
+								width: 43px;
+								height: 43px;
+								position: absolute;
+								left: 15px;
+								top: 30px;
+								background-size: contain;
+								background-repeat : no-repeat;
+							}
+							.content {
+								width: calc(100% - 70px);
+								float: right;
+								.title {
+									color: #717171;
+									font-weight: bold;
+									font-size: 23px;
+								}
+								.button.interest {
+								  float: left;
+								  width: 50px;
+								  height: 50px;
+								  margin-right: calc((100% - 70px - 4*50px)/3);
+								  margin-bottom: 7px;
+								  margin-top: 25px;
+								  background-size: contain;
+								  background-repeat: no-repeat;
+								}
+								.button.interest.games{
+									background-image : url("gamepad.png");
+								}
+								.button.interest.science{
+									background-image : url("testtube.png");
+								}
+								.button.interest.philosophy{
+									background-image : url("aristotle.png");
+								}
+								.button.interest.news{
+									background-image : url("news.png");
+									margin-right: 0;
+								}
+								.item.sous-section.last{
+									border-bottom : 0;
+								}
+								.item.sous-section{
+									float : right;
+									width : 100%;
+									padding : 30px 0;
+									border-bottom : 1px solid #D8D8D7;
+									.top-title {
+										width: 100%;
+										float: left;
+										font-weight: initial;
+										font-size: 16px;
+										color: #444444;
+										font-family: 'Roboto-Bold';
+										-webkit-font-smoothing : antialiased;
+										font-smoothing : antialiased;
+										-moz-font-smoothing : antialiased;
+										font-weight: lighter;
+										color: #636365;
+									}
+									.content {
+										width: 100%;
+										.text {
+											float: left;
+											font-size: 15px;
+											width: 100%;
+											font-family: 'Roboto-Regular';
+											-webkit-font-smoothing : antialiased;
+											font-smoothing : antialiased;
+											-moz-font-smoothing : antialiased;
+											font-weight: lighter;
+											color: #737474;
+											padding-right: 25px;
+											box-sizing: border-box;
+											text-align: justify;
+										}
+										.title {
+											color: #39A0D7;
+											font-size: 15px;
+											font-family: 'Roboto-Regular';
+											-webkit-font-smoothing : antialiased;
+											font-smoothing : antialiased;
+											-moz-font-smoothing : antialiased;
+											font-weight: lighter;
+											margin-top: 10px;
+											margin-bottom: 15px;
+										}
+									}
+								}
 							}
 						}
 					}

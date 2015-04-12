@@ -1,17 +1,40 @@
 var Tools = {
+	addClass : function (el,cls) {
+		
+		typeof(cls) == "object" && cls.length ? el.classList.add.apply(el.classList,cls) : el.classList.add(cls);
+
+	},
+
 	createHTML : function (cls,text,tag) {
 		
 		if(!cls) return; // RULE : no HTML without cls
 		var el = document.createElement(tag || 'div');
 		el.innerHTML = text || "";
-		el.className = cls;
+		Tools.addClass(el,cls);
 		return el;
 		
 	},
 
-	appendChildren : function (father,children) {
+	isDomElement : function (el) {
+		
+		var r;
+		el && el.tagName ? r = true : r = false;
+		
+		return r;
 
-		for(var i = 0, n = children.length; i < n; i++) father.appendChild(children[i]);
+	},
+
+	appendChildren : function (father,children) {
+		
+		if(!Tools.isDomElement(father)) return;
+
+		for(var i = 0, n = children.length; i < n; i++){
+			
+			if(Tools.isDomElement(children[i])) father.appendChild(children[i]);
+			else if(typeof(children[i]) == "string") father.appendChild(Tools.createHTML(children[i])); 
+			else if (console && console.info) console.info("Tools : The element of index " + i + " and of value "+ children[i] + " is not a DOM Element. It has not been added");
+
+		} 
 
 	},
 	
@@ -20,10 +43,6 @@ var Tools = {
 		var trueChildren = father.children;
 		for(var i = 0, n = children.length; i < n; i++) if(trueChildren.indexOf(children[i]) > -1) father.removeChild(children[i]);
 
-	},
-
-	addClass : function (el,cls) {
-		el.classList.add(cls);
 	},
 
 	removeClass : function (el,cls) {
@@ -37,5 +56,16 @@ var Tools = {
 	noBorder : function (side) {
 		if(!side) var side = "";
 		
+	},
+
+	fromStringToClass : function (strg,scope) {// This function better be binded when using it without a scope
+		if(!strg) return;
+		var namespaces = strg.split(".");
+		var cls = scope || this;
+		for (var i = 0, n = namespaces.length; i < n; i++) {
+			cls = cls[namespaces[i]];
+		}
+
+		return cls;
 	}
 }

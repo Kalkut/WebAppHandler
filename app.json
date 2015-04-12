@@ -1,0 +1,9 @@
+{
+	"lefter" : [
+		{
+			"title" : "Curriculum Vitae",
+			"className" : "title",
+			"text" : "Ce CV a été fait en JS et en Sass. N'hésitez pas à cliquer sur mes centres d'intérêts !"
+		}
+	]
+}
