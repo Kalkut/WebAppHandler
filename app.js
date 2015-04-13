@@ -5,7 +5,10 @@ var http = require('http'), fs = require('fs');
 var serveur =  http.createServer(function (req,res) {
 	if (req.url === '/') {
 		res.writeHead(200);
-		res.end('Hello');
+		fs.readFile("app.html", function (err, data) {
+			if (err) throw err;
+			else res.end(data);
+		})
 	} /*else if (req.url === "/upload"){	
 		console.log("/upload");
 		var data = "";
@@ -114,6 +117,14 @@ var serveur =  http.createServer(function (req,res) {
 	else if (req.url.split(".")[1] === 'png') {
 		//console.log(req.url.split(".")[0]);
 		fs.readFile('img' + req.url.split(".")[0]  +".png", function (err, data) {
+			if (err) throw err;
+			res.end(data);
+			console.log(req.url.split(".")[0]);
+		})
+	}
+	else if (req.url.split(".")[1] === 'ico') {
+		//console.log(req.url.split(".")[0]);
+		fs.readFile('img' + req.url.split(".")[0]  +".ico", function (err, data) {
 			if (err) throw err;
 			res.end(data);
 			console.log(req.url.split(".")[0]);
