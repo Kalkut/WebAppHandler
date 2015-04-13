@@ -72,6 +72,9 @@ html{
 		  	line-height: 40px;
 		  	font-size: 25px;
 		  }
+		  @media only screen and (max-height : 460px) {
+		  	display: none;
+		  }
 		  @media only screen and (min-device-width : 600px) and (max-device-width : 736px) and (orientation : landscape) {
 		  	top : 550px;
 		  	bottom : initial;

@@ -18,7 +18,7 @@ var Gate = function (o) {
 		var links = Tools.createHTML("links");
 		var wrap = Tools.createHTML("wrap")
 		this.el = Tools.createHTML('gate');
-		Tools.appendChildren(this.el,[new Website.Preview(o.preview).el,Tools.createHTML('text',o.text),new Website.Button({ className : "go",innerHTML : "CV", events : { mouseup : this.destroy.bind(this)}}).el]);
+		Tools.appendChildren(this.el,[new Website.Preview(o.preview).el,Tools.createHTML('text',o.text)]);
 		
 		links.appendChild(Tools.createHTML("follow",o.follow));
 
@@ -26,6 +26,7 @@ var Gate = function (o) {
 		links.appendChild(wrap);
 		
 		this.el.appendChild(links);
+		this.el.appendChild(new Website.Button({ className : "go",innerHTML : "CV", events : { mouseup : this.destroy.bind(this)}}).el);
 
 	}.bind(this)
 
