@@ -21,7 +21,7 @@
   src: url("/Raleway-Bold.ttf"); }
 .CV {
   width: calc(100% - 150px);
-  min-width: 900px;
+  min-width: 800px;
   max-width: 1000px;
   height: 1500px;
   position: absolute;

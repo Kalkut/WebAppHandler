@@ -54,15 +54,15 @@
 	"workspace" : {
 		"sections" : [
 			{ 
-				"title" : "Work Experiences", 
+				"title" : "Éxpériences professionnelles", 
 				"className" : ["section","work"]
 			},
 			{ 
-				"title" : "Education",
+				"title" : "Formation",
 				"className" : ["section","studies"]
 			},
 			{
-				"title" : "Interests",
+				"title" : "Centres d'intérêt",
 				"className" : ["section","interests"]
 			}
 		],
