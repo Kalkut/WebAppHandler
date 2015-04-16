@@ -28,6 +28,4 @@ Fun fact you can imbricate Items.
 Well it lacks callbacks : I love callbacks. I will also allow the creation of new events. 
 (I know it already exists, but I'm going to do it anyway : you can't stop me !)
 
-PS : I'm also the owner of https://github.com/Kalkut. There is more stuff in it but it's way too messy
-
 Have a good day.
